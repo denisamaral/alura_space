@@ -31,25 +31,29 @@
 
                                 {% for fotografia in cards %}
 
-                                    <li class="card">
+                                    <!-- { %  if fotografia.publicada %} -->
 
-                                    <a href="{%  url 'imagem' fotografia.id %}">
-                                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/' %}{{ fotografia.foto }}" alt="foto">
-                                    </a>
+                                        <li class="card">
 
-                                    <span class="card__tag">Estrelas</span>
+                                            <a href="{%  url 'imagem' fotografia.id %}">
+                                                <img class="card__imagem" src="{% static '/assets/imagens/galeria/' %}{{ fotografia.foto }}" alt="foto">
+                                            </a>
 
-                                    <div class="card__info">
-                                        <p class="card__titulo"> {{fotografia.nome}} </p>
-                                        <div class="card__texto">
-                                            <p class="card__descricao"> {{fotografia.legenda}} </p>
-                                            <span>
-                                                <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
-                                            </span>
-                                        </div>
-                                    </div>
+                                            <span class="card__tag">Estrelas</span>
 
-                                </li>
+                                            <div class="card__info">
+                                                <p class="card__titulo"> {{fotografia.nome}} </p>
+                                                <div class="card__texto">
+                                                    <p class="card__descricao"> {{fotografia.legenda}} </p>
+                                                    <span>
+                                                        <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </li>
+
+                                    <!-- { % endif %} -->
 
                                 {% endfor %}
 

@@ -4,7 +4,10 @@ from galeria.models import Fotografia
 
 def index(request):
 
-    fotografias = Fotografia.objects.all()
+    # buscar todos os resultados indiscriminadamente
+    # fotografias = Fotografia.objects.all()
+
+    fotografias = Fotografia.objects.order_by('data_fotografia').filter(publicada=True)
 
     return render(request, 'galeria/index.html', {'cards':fotografias})
 
