@@ -27,29 +27,33 @@
 
                         <ul class="cards__lista">
 
-                            {% for foto_id, info in cards.items %}
+                            {% if cards %}
 
-                                <li class="card">
+                                {% for fotografia in cards %}
 
-                                <a href="{%  url 'imagem' %}">
-                                    <img class="card__imagem" src="{% static '/assets/imagens/galeria/carina-nebula.png' %}" alt="foto">
-                                </a>
+                                    <li class="card">
 
-                                <span class="card__tag">Estrelas</span>
+                                    <a href="{%  url 'imagem' %}">
+                                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/' %}{{ fotografia.foto }}" alt="foto">
+                                    </a>
 
-                                <div class="card__info">
-                                    <p class="card__titulo"> {{info.nome}} </p>
-                                    <div class="card__texto">
-                                        <p class="card__descricao"> {{info.legenda}} </p>
-                                        <span>
-                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
-                                        </span>
+                                    <span class="card__tag">Estrelas</span>
+
+                                    <div class="card__info">
+                                        <p class="card__titulo"> {{fotografia.nome}} </p>
+                                        <div class="card__texto">
+                                            <p class="card__descricao"> {{fotografia.legenda}} </p>
+                                            <span>
+                                                <img src="{% static '/assets/ícones/1x/favorite_outline.png' %}" alt="ícone de coração">
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </li>
+                                </li>
 
-                            {% endfor %}
+                                {% endfor %}
+
+                            {% endif %}
 
                         </ul>
 
